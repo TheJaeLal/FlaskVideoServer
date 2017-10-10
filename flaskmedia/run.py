@@ -14,5 +14,11 @@ def index():
 	music_files_number = len(music_files)
 	return render_template("index.html",title='Home',music_files_number = music_files_number, music_files = music_files)
 
+@app.route('/<filename>')
+def song(filename):
+	return render_template('play.html',title = filename, music_file = filename)
+	
+
+
 if __name__=='__main__':
 	app.run(host = '0.0.0.0', debug=True)
